@@ -12,12 +12,12 @@ emp_address varchar(255) NOT NULL,
 PRIMARY KEY (emp_id)
 );
   - edit datbase_connection from DatabaseFiles folder to as follow
-  $con = mysqli_connect("localhost", <username>, <password>, "employee");  /*employee is database name
+  $con = mysqli_connect("localhost", _username_, _password_, "employee");  /*employee is database name
 - Go to C:/wamp(64) folder/alias
 - create test.conf file (you can give any name)
 - copy paste following line into the test.conf file
-> Alias / "<path_of_project_root>/" 
-<Directory "<path_of_project_root>/">
+> "Alias / "_path_of_project_root_/" 
+<Directory "_path_of_project_root_/">
    Options Indexes FollowSymLinks
     AllowOverride all
   <IfDefine APACHE24>
