@@ -16,7 +16,7 @@ PRIMARY KEY (emp_id)
 - Go to C:/wamp(64) folder/alias
 - create test.conf file (you can give any name)
 - copy paste following line into the test.conf file
-> "Alias / "_path_of_project_root_/" 
+Alias / "_path_of_project_root_/" 
 <Directory "_path_of_project_root_/">
    Options Indexes FollowSymLinks
     AllowOverride all
