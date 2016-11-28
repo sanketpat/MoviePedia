@@ -2,6 +2,26 @@
 	'use strict';
 	angular.module('dbproject')
 	.controller('homeController', ['$scope', '$http', 'employeeService', function($scope, $http, employeeService) {
+		$scope.searchByOptions = ['Title', 'Actor', 'Writer', 'Director', 'Country', 'Language'];
+		$scope.selectedSearchByOption = $scope.searchByOptions[0];
+
+		// Fetch Genres from DB
+		$scope.genres = ['Select Genre', 'Action', 'Comedy'];
+		$scope.selectedGenre = $scope.genres[0];
+
+		$scope.slider = {
+			minValue: 0,
+			maxValue: 10,
+			options: {
+				floor: 0,
+				ceil: 10,
+				step: 1,
+				showTicks: true,
+				onChange: function(id) {
+					//console.log('on change ' + id);
+				}
+			}
+		};
 
 		// Function to get employee details from the database
 		getInfo();

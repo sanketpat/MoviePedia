@@ -1,64 +1,78 @@
-<div class="container wrapper">
-	<h1 class="text-center">CRUD Operations</h1>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<div class="alert alert-default navbar-brand search-box">
-				<button class="btn btn-primary" ng-click="formToggle()">Add Employee <span class="glyphicon glyphicon-plus" ></span></button>
-			</div>
-			<div class="alert alert-default input-group search-box">
-				<span class="input-group-btn">
-					<input type="text" class="form-control" placeholder="Search Employee Details Into Database..." ng-model="search_query">
-				</span>
-			</div>
-		</div>
-	</nav>
-
-	<div class="col-md-6 col-md-offset-3">
-		<!-- Include form template which is used to insert data into database -->
-		<div ng-include src="'app/views/addItem.html'"></div>
-
-		<!-- Include form template which is used to edit and update data into database -->
-		<div ng-include src="'app/views/editItem.html'"></div>
+<div class="well search-container">
+	<div>
+		<select class="form-control search-by" ng-options="item for item in searchByOptions" ng-model="selectedSearchByOption"></select>
+		<input type="text" class="form-control search-box" placeholder="Search Movies by {{selectedSearchByOption}} Into Database..." ng-model="search_query">
 	</div>
-
-	<div class="clearfix"></div>
-
-	<!-- Table to show employee detalis -->
-	<div class="table-responsive">
-		<table class="table table-hover">
-			<tr>
-				<th>Emp ID</th>
-				<th>Employee Name</th>
-				<th>Email Address</th>
-				<th>Gender</th>
-				<th>Address</th>
-				<th></th>
-				<th></th>
-			</tr>
-
-			<tr ng-repeat="detail in details| filter:search_query">
-				<td>
-					<span>{{detail.emp_id}}</span>
-				</td>
-				<td>
-					{{detail.emp_name}}
-				</td>
-				<td>
-					{{detail.emp_email}}
-				</td>
-				<td>
-					{{detail.emp_gender}}
-				</td>
-				<td>
-					{{detail.emp_address}}
-				</td>
-				<td>
-					<button class="btn btn-warning" ng-click="editInfo(detail)" title="Edit"><span class="glyphicon glyphicon-edit"></span></button>
-				</td>
-				<td>
-					<button class="btn btn-danger" ng-click="deleteInfo(detail)" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-				</td>
-			</tr>
-		</table>
+	<div>
+		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="selectedYear">
+		<rzslider class="search-rating-range" rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
+		<!--<input type="text" class="form-control search-rating-range" placeholder="Range" ng-model="selectedRange">-->
+		<select class="form-control search-genre margin-top-20" ng-options="item for item in genres" ng-model="selectedGenre"></select>
 	</div>
 </div>
+
+<div class="margin-bottom-20">
+	<button class="btn btn-primary" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
+</div>
+
+<!--
+<h1 class="text-center">CRUD Operations</h1>
+<nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<div class="alert alert-default navbar-brand search-box">
+			<button class="btn btn-primary" ng-click="formToggle()">Add Employee <span class="glyphicon glyphicon-plus" ></span></button>
+		</div>
+		<div class="alert alert-default input-group search-box">
+			<span class="input-group-btn">
+				<input type="text" class="form-control" placeholder="Search Employee Details Into Database..." ng-model="search_query">
+			</span>
+		</div>
+	</div>
+</nav>
+-->
+
+<div class="col-md-6 col-md-offset-3">
+	<div ng-include src="'app/views/addItem.html'"></div>
+	<div ng-include src="'app/views/editItem.html'"></div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="table-responsive">
+	<table class="table table-hover">
+		<tr>
+			<th>Emp ID</th>
+			<th>Employee Name</th>
+			<th>Email Address</th>
+			<th>Gender</th>
+			<th>Address</th>
+			<th></th>
+			<th></th>
+		</tr>
+
+		<tr ng-repeat="detail in details| filter:search_query">
+			<td>
+				<span>{{detail.emp_id}}</span>
+			</td>
+			<td>
+				{{detail.emp_name}}
+			</td>
+			<td>
+				{{detail.emp_email}}
+			</td>
+			<td>
+				{{detail.emp_gender}}
+			</td>
+			<td>
+				{{detail.emp_address}}
+			</td>
+			<td>
+				<button class="btn btn-warning" ng-click="editInfo(detail)" title="Edit"><span class="glyphicon glyphicon-edit"></span></button>
+			</td>
+			<td>
+				<button class="btn btn-danger" ng-click="deleteInfo(detail)" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		</tr>
+	</table>
+</div>
+

@@ -1,21 +1,92 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
+
+.header {
+	width: 100%;
+}
+
+.title {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+.login-logout {
+	position: absolute;
+	right: 115px;
+	top: 25px;
+}
+
+.welcome-msg {
+	margin-right: 10px;
+}
+
+.wrapper {
+	min-width: 340px;
+}
+
+.search-container {
+	overflow: auto;
+}
+
+.search-by {
+	float: left;
+	width: 20%;
+	margin-right: 1%;
+}
+
+.search-box {
+	float: left;
+	width: 79%;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+
+.margin-bottom-20 {
+	margin-bottom: 20px;
+}
+
+.search-year {
+	float: left;
+	width: 20%;
+	margin-right: 1%;
+}
+
+.search-rating-range {
+	float: left;
+	width: 58%;
+	margin-right: 1%;
+}
+
+.search-genre {
+	float: left;
+	width: 20%;
+}
+
+/*
 .wrapper{
 min-height: 960px;
 }
+*/
+
 form#empForm, form#editForm {
 padding: 0 35px 15px;
 }
 label.gender {
 padding-top: 0 !important;
 }
+
 table tr th{
 background: #f8f8f8;
 }
+/*
 .search-box {
 padding-bottom: 0;
 }
+
 @media screen and (max-width: 368px){
 .wrapper{
 min-width: 340px;
 }
 }
+*/

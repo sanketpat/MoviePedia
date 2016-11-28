@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('dbproject', ['ngCookies', 'ui.router']);
+	var app = angular.module('dbproject', ['ngCookies', 'ui.router', 'rzModule']);
 
 	app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$stateProvider
@@ -25,8 +25,8 @@
 
 	app.run(['$rootScope', '$cookieStore',
 	function ($rootScope, $cookieStore) {
-		$rootScope.isLoggedIn = $cookieStore.get('isLoggedIn') || false;
-		$rootScope.user = $cookieStore.get('user') || {};
+		$rootScope.isLoggedIn = $cookieStore.get('isAdminLoggedIn') || false;
+		$rootScope.user = $cookieStore.get('dbUser') || {};
 	}]);
 
 })();
