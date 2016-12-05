@@ -10,9 +10,9 @@
 			}
 		};
 
-		this.getEmployees = function (callback) {
+		this.getMovies = function (callback) {
 			// Sending request to EmpDetails.php files
-			$http.get('databaseFiles/empDetails.php')
+			$http.get('databaseFiles/movieDetails.php')
 			.success(function (data, status) {
 				callback(data, status);
 			})

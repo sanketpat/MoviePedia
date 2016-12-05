@@ -26,12 +26,12 @@
 		// Function to get employee details from the database
 		getInfo();
 		function getInfo() {
-			dbService.getEmployees(function (response, status) {
+			dbService.getMovies(function (response, status) {
 				if (status == 200) {
 					// Stored the returned data into scope
 					$scope.details = response;
 				} else {
-					alert('Unable to fetch employee details');
+					alert('Unable to fetch Movie details');
 				}
 			});
 		}

@@ -36,19 +36,19 @@
 
 		<tr ng-repeat="detail in details| filter:search_query">
 			<td>
-				<span>{{detail.emp_id}}</span>
+				<span>{{detail.imdb_id}}</span>
 			</td>
 			<td>
-				{{detail.emp_name}}
+				{{detail.title}}
 			</td>
 			<td>
-				{{detail.emp_email}}
+				{{detail.plot}}
 			</td>
 			<td>
-				{{detail.emp_gender}}
+				{{detail.imdb_rating}}
 			</td>
 			<td>
-				{{detail.emp_address}}
+				{{detail.metascore}}
 			</td>
 			<td>
 				<button class="btn btn-warning" ng-click="editInfo(detail)" title="Edit"><span class="glyphicon glyphicon-edit"></span></button>
@@ -59,4 +59,3 @@
 		</tr>
 	</table>
 </div>
-
