@@ -52,6 +52,8 @@
 				} else {
 					alert('Unable to update employee details');
 				}
+
+				$('#empForm').css('display', 'none');
 			});
 		}
 
@@ -60,6 +62,7 @@
 			$scope.currentUser = info;
 			$('#form').slideUp();
 			$('#editForm').slideToggle();
+			$('#empForm').css('display', 'none');
 		};
 
 		$scope.UpdateInfo = function(info) {
@@ -70,6 +73,8 @@
 				} else {
 					alert('Unable to add employee details');
 				}
+
+				$('#editForm').css('display', 'none');
 			});
 		}
 
@@ -81,6 +86,11 @@
 					alert('Unable to delete employee details');
 				}
 			});
-		}
+		};
+
+		$scope.cancelAddOrEdit = function() {
+			$('#editForm').css('display', 'none');
+			$('#empForm').css('display', 'none');
+		};
 	}]);
 })();

@@ -1,22 +1,22 @@
-<!-- Form used to add new entries of employee in database -->
+<!-- Form used to add new entries of Movie in database -->
 <form class="form-horizontal alert alert-warning" name="empList" id="empForm" ng-submit="insertInfo(empInfo);" hidden>
-	<h3 class="text-center">Insert Employee Details Into Database</h3>
+	<h3 class="text-center">Insert Movie Details Into Database</h3>
 	<div class="form-group">
-		<label for="Name">Employee Name:</label>
-		<input type="text" name="emp_name" class="form-control" placeholder="Enter Employee Name" ng-model="empInfo.emp_name" autofocus required />
+		<label for="Name">Movie Name:</label>
+		<input type="text" name="emp_name" class="form-control" placeholder="Enter Movie Name" ng-model="empInfo.emp_name" autofocus required />
 	</div>
 	<div class="form-group">
 		<p class="text-danger" ng-show="empList.emp_name.$invalid && empList.emp_name.$dirty">Name field is Empty!</p>
 	</div>
 	<div class="form-group">
-		<label for="Email">Email Address:</label>
-		<input type="email" name="emp_email" class="form-control" placeholder="Enter Employee Email Address" ng-model="empInfo.emp_email" autofocus required />
+		<label for="Email">Plot:</label>
+		<input type="email" name="emp_email" class="form-control" placeholder="Enter Plot" ng-model="empInfo.emp_email" autofocus required />
 	</div>
 	<div class="form-group">
-		<p class="text-danger" ng-show="empList.emp_email.$invalid && empList.emp_email.$dirty">Invalid Email!</p>
+		<p class="text-danger" ng-show="empList.emp_email.$invalid && empList.emp_email.$dirty">Invalid Plot!</p>
 	</div>
 	<div class="form-group">
-		<label for="Gender">Gender:</label>
+		<label for="Gender">Rating:</label>
 		<label for="" class="radio-inline gender">
 		<input type="radio" name="emp_gender" value="male" ng-model="empInfo.emp_gender">Male
 		</label>
@@ -26,12 +26,13 @@
 	</div>
 	<div class="form-group">
 		<label for="Address">Address:</label>
-		<input type="text" name="emp_address" class="form-control" placeholder="Enter Employee Address" ng-model="empInfo.emp_address" autofocus required />
+		<input type="text" name="emp_address" class="form-control" placeholder="Enter Movie Address" ng-model="empInfo.emp_address" autofocus required />
 	</div>
 	<div class="form-group">
 		<p class="text-danger" ng-show="empList.emp_address.$invalid && empList.emp_address.$dirty">Address field is Empty!</p>
 	</div>
-	<div class="form-group">
-		<button class="btn btn-warning" ng-disabled="empList.$invalid">Add Into Database</button>
+	<div class="form-group btn-container">
+		<button class="btn btn-warning btn-add-update" ng-disabled="empList.$invalid">Add Into Database</button>
+		<button class="btn btn-warning btn-cancel" ng-click="cancelAddOrEdit()">Cancel</button>
 	</div>
 </form>

@@ -6,7 +6,6 @@
 	<div>
 		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="selectedYear">
 		<rzslider class="search-rating-range" rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
-		<!--<input type="text" class="form-control search-rating-range" placeholder="Range" ng-model="selectedRange">-->
 		<select class="form-control search-genre margin-top-20" ng-options="item for item in genres" ng-model="selectedGenre"></select>
 	</div>
 </div>
@@ -15,23 +14,7 @@
 	<button class="btn btn-primary" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
 </div>
 
-<!--
-<h1 class="text-center">CRUD Operations</h1>
-<nav class="navbar navbar-default">
-	<div class="navbar-header">
-		<div class="alert alert-default navbar-brand search-box">
-			<button class="btn btn-primary" ng-click="formToggle()">Add Employee <span class="glyphicon glyphicon-plus" ></span></button>
-		</div>
-		<div class="alert alert-default input-group search-box">
-			<span class="input-group-btn">
-				<input type="text" class="form-control" placeholder="Search Employee Details Into Database..." ng-model="search_query">
-			</span>
-		</div>
-	</div>
-</nav>
--->
-
-<div class="col-md-6 col-md-offset-3">
+<div class="add-edit-dialog">
 	<div ng-include src="'app/views/addItem.html'"></div>
 	<div ng-include src="'app/views/editItem.html'"></div>
 </div>
@@ -41,11 +24,11 @@
 <div class="table-responsive">
 	<table class="table table-hover">
 		<tr>
-			<th>Emp ID</th>
-			<th>Employee Name</th>
-			<th>Email Address</th>
-			<th>Gender</th>
-			<th>Address</th>
+			<th>Movie ID</th>
+			<th>Movie Name</th>
+			<th>Plot</th>
+			<th>Rating</th>
+			<th>Meta Score</th>
 			<th></th>
 			<th></th>
 		</tr>

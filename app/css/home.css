@@ -90,3 +90,25 @@ min-width: 340px;
 }
 }
 */
+
+.add-edit-dialog {
+	position: absolute;
+	left: 25%;
+	top: 25%;
+	width: 50%;
+}
+
+.btn-container {
+	width: 100%;
+}
+
+.btn-add-update {
+	width: 30%;
+	margin-left: 15%;
+	margin-right: 10%;
+}
+
+.btn-cancel {
+	width: 30%;
+	margin-right: 14%;
+}

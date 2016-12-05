@@ -25,7 +25,7 @@
 
 	app.run(['$rootScope', '$cookieStore',
 	function ($rootScope, $cookieStore) {
-		$rootScope.isLoggedIn = $cookieStore.get('isAdminLoggedIn') || false;
+		$rootScope.isAdminLoggedIn = $cookieStore.get('isAdminLoggedIn') || false;
 		$rootScope.user = $cookieStore.get('dbUser') || {};
 	}]);
 
