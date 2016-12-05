@@ -1,38 +1,88 @@
 <!-- Form used to add new entries of Movie in database -->
-<form class="form-horizontal alert alert-warning" name="empList" id="empForm" ng-submit="insertInfo(empInfo);" hidden>
+<form class="form-horizontal alert alert-warning" name="movieList" id="movieForm" ng-submit="insertInfo(movieInfo);" hidden>
 	<h3 class="text-center">Insert Movie Details Into Database</h3>
 	<div class="form-group">
-		<label for="Name">Movie Name:</label>
-		<input type="text" name="emp_name" class="form-control" placeholder="Enter Movie Name" ng-model="empInfo.emp_name" autofocus required />
+		<label for="ID">Movie Id:</label>
+		<input type="text" name="movie_id" class="form-control" placeholder="Enter Movie Id" ng-model="movieInfo.movie_id" autofocus required />
 	</div>
 	<div class="form-group">
-		<p class="text-danger" ng-show="empList.emp_name.$invalid && empList.emp_name.$dirty">Name field is Empty!</p>
+		<p class="text-danger" ng-show="movieList.movie_id.$invalid && movieList.movie_id.$dirty">Title field is Empty!</p>
+	</div>
+
+	<div class="form-group">
+		<label for="Title">Movie Name:</label>
+		<input type="text" name="movie_title" class="form-control" placeholder="Enter Movie Name" ng-model="movieInfo.movie_title" autofocus required />
 	</div>
 	<div class="form-group">
-		<label for="Email">Plot:</label>
-		<input type="email" name="emp_email" class="form-control" placeholder="Enter Plot" ng-model="empInfo.emp_email" autofocus required />
+		<p class="text-danger" ng-show="movieList.movie_title.$invalid && movieList.movie_title.$dirty">Title field is Empty!</p>
 	</div>
 	<div class="form-group">
-		<p class="text-danger" ng-show="empList.emp_email.$invalid && empList.emp_email.$dirty">Invalid Plot!</p>
+		<label for="Released">Released Date:</label>
+		<input type="text" name="movie_released" class="form-control" placeholder="Enter Released Date" ng-model="movieInfo.movie_released" autofocus required />
 	</div>
 	<div class="form-group">
-		<label for="Gender">Rating:</label>
-		<label for="" class="radio-inline gender">
-		<input type="radio" name="emp_gender" value="male" ng-model="empInfo.emp_gender">Male
-		</label>
-		<label for="" class="radio-inline gender">
-		<input type="radio" name="emp_gender" value="female" ng-model="empInfo.emp_gender">Female
-		</label>
+		<p class="text-danger" ng-show="movieList.movie_released.$invalid && movieList.movie_released.$dirty">Invalid Released Date!</p>
 	</div>
 	<div class="form-group">
-		<label for="Address">Address:</label>
-		<input type="text" name="emp_address" class="form-control" placeholder="Enter Movie Address" ng-model="empInfo.emp_address" autofocus required />
+		<label for="Runtime">Runtime:</label>
+		<input type="text" name="movie_runtime" class="form-control" placeholder="Enter Runtime" ng-model="movieInfo.movie_runtime" autofocus required />
 	</div>
 	<div class="form-group">
-		<p class="text-danger" ng-show="empList.emp_address.$invalid && empList.emp_address.$dirty">Address field is Empty!</p>
+		<p class="text-danger" ng-show="movieList.movie_runtime.$invalid && movieList.movie_runtime.$dirty">Invalid Runtime!</p>
+	</div>
+
+	<div class="form-group">
+		<label for="Plot">Plot:</label>
+		<input type="text" name="movie_plot" class="form-control" placeholder="Enter Plot" ng-model="movieInfo.movie_plot" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_plot.$invalid && movieList.movie_plot.$dirty">Invalid Plot!</p>
+	</div>
+
+	<div class="form-group">
+		<label for="Awards">Awards:</label>
+		<input type="text" name="movie_awards" class="form-control" placeholder="Enter Awards" ng-model="movieInfo.movie_awards" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_awards.$invalid && movieList.movie_awards.$dirty">Invalid Awards!</p>
+	</div>
+
+	<div class="form-group">
+		<label for="Poster">Poster:</label>
+		<input type="text" name="movie_poster" class="form-control" placeholder="Enter Poster" ng-model="movieInfo.movie_poster" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_poster.$invalid && movieList.movie_poster.$dirty">Invalid Poster!</p>
+	</div>
+
+
+	<div class="form-group">
+		<label for="Metascore">Metascore:</label>
+		<input type="text" name="movie_metascore" class="form-control" placeholder="Enter Metascore" ng-model="movieInfo.movie_metascore" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_metascore.$invalid && movieList.movie_metascore.$dirty">Invalid Metascore!</p>
+	</div>
+
+
+	<div class="form-group">
+		<label for="Rating">IMDB Rating:</label>
+		<input type="text" name="movie_rating" class="form-control" placeholder="Enter Rating" ng-model="movieInfo.movie_rating" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_rating.$invalid && movieList.movie_rating.$dirty">Invalid Rating!</p>
+	</div>
+
+
+	<div class="form-group">
+		<label for="Counts">IMDB Vote Counts:</label>
+		<input type="text" name="movie_votes" class="form-control" placeholder="Enter Rating" ng-model="movieInfo.movie_votes" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="movieList.movie_votes.$invalid && movieList.movie_votes.$dirty">Invalid Vote Count!</p>
 	</div>
 	<div class="form-group btn-container">
-		<button class="btn btn-warning btn-action" ng-disabled="empList.$invalid">Add Into Database</button>
+		<button class="btn btn-warning btn-action" ng-disabled="movieList.$invalid">Add Into Database</button>
 		<button class="btn btn-warning btn-cancel" ng-click="cancel()">Cancel</button>
 	</div>
 </form>

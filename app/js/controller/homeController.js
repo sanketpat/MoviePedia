@@ -41,16 +41,16 @@
 		// Function to add toggle behaviour to form
 		$scope.formToggle = function() {
 			hideAllDialog();
-			$('#empForm').slideToggle();
+			$('#movieForm').slideToggle();
 		}
 
 		$scope.insertInfo = function(info) {
-			dbService.addEmployee(info, function (status) {
+			dbService.addMovie(info, function (status) {
 				if (status == '1') {
 					getInfo();
 					$('#form').css('display', 'none');
 				} else {
-					alert('Unable to update employee details');
+					alert('Unable to Add movie details');
 				}
 
 				hideAllDialog();
@@ -79,7 +79,7 @@
 		}
 
 		$scope.deleteInfo = function(info) {
-			dbService.deleteEmployee(info, function (status) {
+			dbService.deleteMovie(info, function (status) {
 				if (status == 200) {
 					getInfo();
 				} else {
@@ -111,7 +111,7 @@
 
 		var hideAllDialog = function() {
 			$('#editForm').css('display', 'none');
-			$('#empForm').css('display', 'none');
+			$('#movieForm').css('display', 'none');
 			$('#adminLogin').css('display', 'none');
 		};
 	}]);

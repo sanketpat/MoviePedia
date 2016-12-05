@@ -69,7 +69,7 @@ min-height: 960px;
 }
 */
 
-form#empForm, form#editForm, form#adminLogin {
+form#movieForm, form#editForm, form#adminLogin {
 padding: 0 35px 10px;
 }
 label.gender {

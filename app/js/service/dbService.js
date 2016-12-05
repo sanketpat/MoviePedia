@@ -21,18 +21,20 @@
 			});
 		};
 
-		this.addEmployee = function (employee, callback) {
+		this.addMovie = function (movie, callback) {
 			$http.post('databaseFiles/insertDetails.php', employee, config)
 			.success(function (status) {
 				callback(status);
+					console.log(status);
 			})
 			.error(function (status) {
 				callback(status);
+				console.log(status);
 			});
 		};
 
-		this.updateEmployee = function (employee, callback) {
-			$http.put('databaseFiles/updateDetails.php', employee, config)
+		this.updateEmployee = function (movie, callback) {
+			$http.put('databaseFiles/updateDetails.php', movie, config)
 			.success(function (response, status) {
 				callback(status);
 			})
@@ -41,13 +43,15 @@
 			});
 		};
 
-		this.deleteEmployee = function (employee, callback) {
-			$http.post('databaseFiles/deleteDetails.php', employee, config)
+		this.deleteMovie = function (movie, callback) {
+			$http.post('databaseFiles/deleteDetails.php', movie, config)
 			.success(function (response, status) {
 				callback(status);
+						console.log(status);
 			})
 			.error(function (status) {
 				callback(status);
+				console.log(status);
 			});
 		};
 
