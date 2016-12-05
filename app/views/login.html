@@ -1,0 +1,21 @@
+<form class="form-horizontal alert alert-warning" id="adminLogin" name="adminLogin" action="/" hidden>
+	<h3 class="text-center">Admin Login</h3>
+	<div class="form-group">
+		<label for="User Name">User Name:</label>
+		<input type="text" class="form-control" name="userName" placeholder="Enter User Name / Email" ng-model="user.userName" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="adminLogin.userName.$invalid && adminLogin.userName.$dirty">User Name field is Empty!</p>
+	</div>
+	<div class="form-group">
+		<label for="Password">Password:</label>
+		<input type="password" name="password" class="form-control" placeholder="Enter Password" ng-model="user.password" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="adminLogin.password.$invalid && adminLogin.password.$dirty">Password field is Empty!</p>
+	</div>
+	<div class="form-group btn-container">
+		<button class="btn btn-warning btn-action" ng-disabled="adminLogin.$invalid" ng-click="login()">Login</button>
+		<button class="btn btn-warning btn-cancel" ng-click="cancel()">Cancel</button>
+	</div>
+</form>

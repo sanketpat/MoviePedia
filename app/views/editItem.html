@@ -23,8 +23,8 @@
 		<input type="text" class="form-control" ng-model="currentUser.emp_address" value="{{currentUser.emp_address}}">
 	</div>
 	<div class="form-group btn-container">
-		<button class="btn btn-warning btn-add-update" ng-disabled="empList.$invalid" ng-click="updateMsg(currentUser.emp_id)">Update</button>
-		<button class="btn btn-warning btn-cancel" ng-click="cancelAddOrEdit()">Cancel</button>
+		<button class="btn btn-warning btn-action" ng-disabled="empList.$invalid" ng-click="updateMsg(currentUser.emp_id)">Update</button>
+		<button class="btn btn-warning btn-cancel" ng-click="cancel()">Cancel</button>
 	</div>
 	</div>
 </form>

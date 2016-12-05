@@ -39,9 +39,9 @@
 		// Enabling show_form variable to enable Add employee button
 		$scope.show_form = true;
 		// Function to add toggle behaviour to form
-		$scope.formToggle = function(){
+		$scope.formToggle = function() {
+			hideAllDialog();
 			$('#empForm').slideToggle();
-			$('#editForm').css('display', 'none');
 		}
 
 		$scope.insertInfo = function(info) {
@@ -53,7 +53,7 @@
 					alert('Unable to update employee details');
 				}
 
-				$('#empForm').css('display', 'none');
+				hideAllDialog();
 			});
 		}
 
@@ -61,8 +61,8 @@
 		$scope.editInfo = function(info) {
 			$scope.currentUser = info;
 			$('#form').slideUp();
+			hideAllDialog();
 			$('#editForm').slideToggle();
-			$('#empForm').css('display', 'none');
 		};
 
 		$scope.UpdateInfo = function(info) {
@@ -74,7 +74,7 @@
 					alert('Unable to add employee details');
 				}
 
-				$('#editForm').css('display', 'none');
+				hideAllDialog();
 			});
 		}
 
@@ -88,9 +88,23 @@
 			});
 		};
 
-		$scope.cancelAddOrEdit = function() {
+		$scope.cancel = function() {
+			hideAllDialog();
+		};
+
+		$scope.openLoginDialog = function() {
+			hideAllDialog();
+			$('#adminLogin').slideToggle();
+		};
+
+		$scope.login = function() {
+			
+		};
+
+		var hideAllDialog = function() {
 			$('#editForm').css('display', 'none');
 			$('#empForm').css('display', 'none');
+			$('#adminLogin').css('display', 'none');
 		};
 	}]);
 })();

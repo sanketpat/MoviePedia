@@ -69,8 +69,8 @@ min-height: 960px;
 }
 */
 
-form#empForm, form#editForm {
-padding: 0 35px 15px;
+form#empForm, form#editForm, form#adminLogin {
+padding: 0 35px 10px;
 }
 label.gender {
 padding-top: 0 !important;
@@ -102,7 +102,7 @@ min-width: 340px;
 	width: 100%;
 }
 
-.btn-add-update {
+.btn-action {
 	width: 30%;
 	margin-left: 15%;
 	margin-right: 10%;

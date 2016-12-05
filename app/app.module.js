@@ -6,7 +6,6 @@
 		$stateProvider
 		.state('home', {
 			url: '/home',
-			controller: 'homeController',
 			templateUrl: 'app/views/home.html'
 		})
 		.state('login', {

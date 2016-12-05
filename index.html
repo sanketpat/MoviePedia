@@ -22,14 +22,14 @@
 		<script src="app/js/service/employeeService.js"></script>
 	</head>
 
-	<body ng-app="dbproject" class="container wrapper">
+	<body ng-app="dbproject" class="container wrapper" ng-controller="homeController">
 		<div class="header">
 			<div class="title">
 				<h1>MOVIEPEDIA</h1>
 			</div>
 
 			<div class="login-logout" ng-if="!isAdminLoggedIn">
-				<button class="btn btn-primary" ng-click="login()">Admin Sign-In</button>
+				<button class="btn btn-primary" ng-click="openLoginDialog()">Admin Sign-In</button>
 			</div>
 
 			<div class="login-logout" ng-if="isAdminLoggedIn">
