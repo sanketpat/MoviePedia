@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 	angular.module('dbproject')
-	.service('employeeService', ['$http', function ($http) {
-		var employeeService = this;
+	.service('dbService', ['$http', function ($http) {
+		var dbService = this;
 		var userId = 0;
 		var config = {
 			headers: {
@@ -21,7 +21,6 @@
 			});
 		};
 
-		
 		this.addEmployee = function (employee, callback) {
 			$http.post('databaseFiles/insertDetails.php', employee, config)
 			.success(function (status) {
@@ -32,7 +31,6 @@
 			});
 		};
 
-		
 		this.updateEmployee = function (employee, callback) {
 			$http.put('databaseFiles/updateDetails.php', employee, config)
 			.success(function (response, status) {
@@ -46,6 +44,16 @@
 		this.deleteEmployee = function (employee, callback) {
 			$http.post('databaseFiles/deleteDetails.php', employee, config)
 			.success(function (response, status) {
+				callback(status);
+			})
+			.error(function (status) {
+				callback(status);
+			});
+		};
+
+		this.login = function (user, callback) {
+			$http.post('databaseFiles/login.php', user, config)
+			.success(function (status) {
 				callback(status);
 			})
 			.error(function (status) {

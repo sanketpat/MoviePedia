@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	angular.module('dbproject')
-	.controller('homeController', ['$scope', '$http', 'employeeService', function($scope, $http, employeeService) {
+	.controller('homeController', ['$scope', '$http', 'dbService', function($scope, $http, dbService) {
 		$scope.searchByOptions = ['Title', 'Actor', 'Writer', 'Director', 'Country', 'Language'];
 		$scope.selectedSearchByOption = $scope.searchByOptions[0];
 
@@ -26,7 +26,7 @@
 		// Function to get employee details from the database
 		getInfo();
 		function getInfo() {
-			employeeService.getEmployees(function (response, status) {
+			dbService.getEmployees(function (response, status) {
 				if (status == 200) {
 					// Stored the returned data into scope
 					$scope.details = response;
@@ -45,7 +45,7 @@
 		}
 
 		$scope.insertInfo = function(info) {
-			employeeService.addEmployee(info, function (status) {
+			dbService.addEmployee(info, function (status) {
 				if (status == '1') {
 					getInfo();
 					$('#form').css('display', 'none');
@@ -66,7 +66,7 @@
 		};
 
 		$scope.UpdateInfo = function(info) {
-			employeeService.updateEmployee(info, function (status) {
+			dbService.updateEmployee(info, function (status) {
 				if (status == 200) {
 					$scope.show_form = true;
 					getInfo();
@@ -79,7 +79,7 @@
 		}
 
 		$scope.deleteInfo = function(info) {
-			employeeService.deleteEmployee(info, function (status) {
+			dbService.deleteEmployee(info, function (status) {
 				if (status == 200) {
 					getInfo();
 				} else {
@@ -98,7 +98,15 @@
 		};
 
 		$scope.login = function() {
-			
+			dbService.login($scope.user, function (status) {
+				if (status == 200) {
+					// do something
+				} else {
+					alert('Unable to sign-in.');
+				}
+
+				hideAllDialog();
+			});
 		};
 
 		var hideAllDialog = function() {
