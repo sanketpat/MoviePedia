@@ -15,14 +15,16 @@
 			$http.get('databaseFiles/movieDetails.php')
 			.success(function (data, status) {
 				callback(data, status);
+				console.log(status);
 			})
 			.error(function (data, status) {
 				callback(data, status);
+				console.log(status);
 			});
 		};
 
 		this.addMovie = function (movie, callback) {
-			$http.post('databaseFiles/insertDetails.php', employee, config)
+			$http.post('databaseFiles/insertDetails.php', movie, config)
 			.success(function (status) {
 				callback(status);
 					console.log(status);
