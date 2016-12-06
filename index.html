@@ -30,12 +30,12 @@
 			</div>
 
 			<div class="login-logout" ng-if="!isAdminLoggedIn">
-				<button class="btn btn-primary" ng-click="openLoginDialog()">Admin Sign-In</button>
+				<button class="btn btn-primary form-control btn-login" ng-click="openLoginDialog()">Admin Sign-In</button>
 			</div>
 
 			<div class="login-logout" ng-if="isAdminLoggedIn">
-				<span class="welcome-msg"><strong>Welcome! Atul Banwar{{dbUser.name}}</strong></span>
-				<button class="btn btn-primary" ng-click="logout()">Logout</button>
+				<span class="welcome-msg form-control"><strong>Welcome! Atul Banwar{{dbUser.name}}</strong></span>
+				<button class="btn btn-primary form-control btn-logout" ng-click="logout()">Logout</button>
 			</div>
 		</div>
 

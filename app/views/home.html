@@ -8,11 +8,20 @@
 		<rzslider class="search-rating-range" rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
 		<select class="form-control search-genre margin-top-20" ng-options="item for item in genres" ng-model="selectedGenre"></select>
 	</div>
+	<div>
+		<button class="btn btn-primary form-control search-btn" ng-click="search()">Search</button>
+	</div>
 </div>
 
-<div class="margin-bottom-20">
-	<button class="btn btn-primary" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
-	<div 
+<div class="stats-container">
+	<div class="btn-add-movie-container">
+		<button class="btn btn-default form-control" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
+	</div>
+	<div class="fetch-more-movie-container">
+		<button class="btn btn-default form-control btn-fetch-prev" ng-click="fetchPrev100()">‹</button>
+		<span class="form-control lbl-stats">Showing {{recordsFrom}} - {{recordsTo}} of {{totalRecords}} Records</span>
+		<button class="btn btn-default form-control btn-fetch-next" ng-click="fetchNext100()">›</button>
+	</div>
 </div>
 
 <div class="add-edit-dialog">
