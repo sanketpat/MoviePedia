@@ -59,19 +59,19 @@
 
 		$scope.currentUser = {};
 		$scope.editInfo = function(info) {
-			$scope.currentUser = info;
+			$scope.currentMovie = info;
 			//$('#form').slideUp();
 			hideAllDialog();
 			$('#editForm').slideToggle();
 		};
 
 		$scope.UpdateInfo = function(info) {
-			dbService.updateEmployee(info, function (status) {
+			dbService.updateMovie(info, function (status) {
 				if (status == 200) {
 					$scope.show_form = true;
 					getInfo();
 				} else {
-					alert('Unable to add employee details');
+					alert('Unable to Update Movie details');
 				}
 
 				hideAllDialog();
@@ -114,7 +114,7 @@
 			$('#movieForm').css('display', 'none');
 			$('#adminLogin').css('display', 'none');
 		};
-		
+
 		$scope.showDetails = function(detail) {
 			hideAllDialog();
 		};

@@ -35,7 +35,7 @@
 			});
 		};
 
-		this.updateEmployee = function (movie, callback) {
+		this.updateMovie = function (movie, callback) {
 			$http.put('databaseFiles/updateDetails.php', movie, config)
 			.success(function (response, status) {
 				callback(status);
