@@ -1,5 +1,5 @@
 <!-- Form used to add new entries of Movie in database -->
-<form class="form-horizontal alert alert-warning" name="movieList" id="movieForm" ng-submit="insertInfo(movieInfo);" hidden>
+<form class="form-horizontal alert" name="movieList" id="movieForm" ng-submit="insertInfo(movieInfo);" hidden>
 	<h3 class="text-center">Insert Movie Details Into Database</h3>
 	<div class="form-group">
 		<label for="ID">Movie Id:</label>
@@ -48,8 +48,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="Poster">Poster:</label>
-		<input type="text" name="movie_poster" class="form-control" placeholder="Enter Poster" ng-model="movieInfo.movie_poster" autofocus required />
+		<label for="Poster">Poster URL:</label>
+		<input type="text" name="movie_poster" class="form-control" placeholder="Enter Poster URL" ng-model="movieInfo.movie_poster" autofocus required />
 	</div>
 	<div class="form-group">
 		<p class="text-danger" ng-show="movieList.movie_poster.$invalid && movieList.movie_poster.$dirty">Invalid Poster!</p>
@@ -82,7 +82,7 @@
 		<p class="text-danger" ng-show="movieList.movie_votes.$invalid && movieList.movie_votes.$dirty">Invalid Vote Count!</p>
 	</div>
 	<div class="form-group btn-container">
-		<button class="btn btn-warning btn-action" ng-disabled="movieList.$invalid">Add Into Database</button>
-		<button class="btn btn-warning btn-cancel" ng-click="cancel()">Cancel</button>
+		<button class="btn btn-primary btn-action" ng-disabled="movieList.$invalid">Add Into Database</button>
+		<button class="btn btn-primary btn-cancel" ng-click="cancel()">Cancel</button>
 	</div>
 </form>
