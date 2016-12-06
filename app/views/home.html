@@ -34,12 +34,15 @@
 </div>
 
 <div dir-paginate="detail in details | filter:search_query | itemsPerPage: 10" pagination-id="moviesList">
-	<div class="movie-item">
+	<div class="movie-item" ng-click="showDetails(detail)">
 		<div class="movie-item-image-container" ng-switch on="detail.poster">
 			<img class="movie-item-image" ng-switch-when="N/A" ng-src="app/image/noimage.jpg" />
 			<img class="movie-item-image" ng-switch-default ng-src="{{detail.poster}}" />
 		</div>
-		<div class="movie-item-label" ng-bind="detail.title">
+		<div class="movie-item-footer">
+			<span class="movie-item-label" ng-class="!isAdminLoggedIn == true && {'quarter-width': true} || {'full-width': true}" ng-bind="detail.title"></span>
+			<span ng-show="!isAdminLoggedIn" class="movie-item-edit glyphicon glyphicon-pencil" ng-click="editInfo(detail)"></span>
+			<span ng-show="!isAdminLoggedIn" class="movie-item-delete glyphicon glyphicon-trash" ng-click="deleteInfo(detail)"></span>
 		</div>
 	</div>
 </div>

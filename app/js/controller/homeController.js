@@ -60,7 +60,7 @@
 		$scope.currentUser = {};
 		$scope.editInfo = function(info) {
 			$scope.currentUser = info;
-			$('#form').slideUp();
+			//$('#form').slideUp();
 			hideAllDialog();
 			$('#editForm').slideToggle();
 		};
@@ -113,6 +113,10 @@
 			$('#editForm').css('display', 'none');
 			$('#movieForm').css('display', 'none');
 			$('#adminLogin').css('display', 'none');
+		};
+		
+		$scope.showDetails = function(detail) {
+			hideAllDialog();
 		};
 	}]);
 })();

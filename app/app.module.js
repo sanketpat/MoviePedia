@@ -7,12 +7,7 @@
 		.state('home', {
 			url: '/home',
 			templateUrl: 'app/views/home.html'
-		})
-		.state('login', {
-			url: '/login',
-			controller: 'loginController',
-			templateUrl: 'app/views/login.html'
-		})
+		});
 
 		$urlRouterProvider.otherwise('home');
 
