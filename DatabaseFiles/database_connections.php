@@ -1,4 +1,4 @@
 <?php
 // Connecting to database as mysqli_connect("hostname", "username", "password", "database name");
-$con = mysqli_connect("localhost", "root", "root", "adproject4");
+$con = mysqli_connect("localhost", "root", "", "adproject4_2");
 ?>

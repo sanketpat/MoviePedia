@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('dbproject', ['ngCookies', 'ui.router', 'rzModule']);
+	var app = angular.module('dbproject', ['ngCookies', 'ui.router', 'rzModule', 'angularUtils.directives.dirPagination']);
 
 	app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$stateProvider
