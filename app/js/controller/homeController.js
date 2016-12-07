@@ -13,6 +13,7 @@
 		$scope.user = $rootScope.user;
 
 		$scope.searchCond = {
+			selectedSearchOption: 'Title',
 			searchString : '',
 			selectedYear : '',
 			selectedGenre : ''
@@ -183,7 +184,7 @@
 			$scope.recordsTo = 100;
 
 			$scope.searchObj = {
-				selectedSearchByOption : $scope.selectedSearchByOption,
+				selectedSearchByOption : $scope.searchCond.selectedSearchByOption ? $scope.searchCond.selectedSearchByOption : '',
 				searchString : $scope.searchCond.searchString ? $scope.searchCond.searchString : '',
 				selectedYear : $scope.searchCond.selectedYear ? $scope.searchCond.selectedYear : '',
 				minRating : $scope.slider.minValue,

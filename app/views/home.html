@@ -1,7 +1,7 @@
 <div class="well search-container">
 	<div>
-		<select class="form-control search-by" ng-options="item for item in searchByOptions" ng-model="selectedSearchByOption"></select>
-		<input type="text" class="form-control search-box" placeholder="Search Movies by {{selectedSearchByOption}} Into Database..." ng-model="searchCond.searchString">
+		<select class="form-control search-by" ng-options="item for item in searchByOptions" ng-model="searchCond.selectedSearchByOption"></select>
+		<input type="text" class="form-control search-box" placeholder="Search Movies by {{searchCond.selectedSearchByOption}} Into Database..." ng-model="searchCond.searchString">
 	</div>
 	<div>
 		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="searchCond.selectedYear">
