@@ -1,6 +1,70 @@
 <div class="detail-container">
-<span class="movie-item-edit glyphicon glyphicon-remove" ng-click="cancel()"></span>
-This is details page
+<span class="movie-info-close glyphicon glyphicon-remove" ng-click="cancel()"></span>
 
-{{selectedMovie.title}}
+<div class="movie-primary-info-container">
+	<div class="movie-info-image-container" ng-switch on="selectedMovie.poster">
+		<img class="movie-info-image" ng-switch-when="N/A" ng-src="app/image/noimage.jpg" />
+		<img class="movie-info-image" ng-switch-default ng-src="{{selectedMovie.poster}}" />
+	</div>
+	<div class="movie-info-data-container">
+		<div class="movie-info-data-header">
+			<h1 style="color:black;margin-left:30px;"><label for="Moviename">{{selectedMovie.title}}</label></h1>
+			<h4 style="color:black;margin-left:30px;"><strong>{{selectedMovie.runtime}} | {{selectedMovie.released}} | Genre</strong></h4>
+			<h4 style="color:black;margin-left:30px;"><strong>Rating:</strong> {{selectedMovie.imdb_rating}}</h4>
+		</div>
+		<div class="movie-info-data-plot">
+			<h4><strong> Plot: </strong></h4>
+			<div>{{selectedMovie.plot}}</div>
+		</div>
+	</div>
+</div>
+
+<div class="movie-extra-info-container">
+	<h4><strong>Meta Score:</strong> {{selectedMovie.metascore}}</h4>
+	<h4><strong>IMDB Votes:</strong> {{selectedMovie.imdb_votes}}</h4>
+	<h4><strong>Rated:</strong> {{selectedMovie.rated}}</h4>
+	<h4><strong>Actor:</strong> {{selectedMovie.actors}}</h4>
+	<h4><strong>Writer:</strong> {{selectedMovie.writers}}</h4>
+	<h4><strong>Director:</strong> {{selectedMovie.directors}}</h4>
+	<h4><strong>Language:</strong> {{selectedMovie.languages}}</h4>
+	<h4><strong>Country:</strong> {{selectedMovie.countries}}</h4>
+</div>
+
+<!--
+<div class="container wrapper">
+<nav class="navbar navbar-default">
+		<div class="navbar-header">
+		<div id="container" style="width:80%;">                                   
+			<div id="left" style="float:left; width:50%;">
+					<img ng-src="{{selectedMovie.poster}}" class="img-thumbnail" alt="Cinque Terre" width="400" height="800">  
+			</div>       
+			
+			<div id="right" style="float:right; width:50%;"> 
+				<div>
+					<h1 style="color:blue;margin-left:30px;"><label for="Moviename">{{selectedMovie.title}}</label></h1>
+					<h4 style="color:blue;margin-left:30px;"> Duration | Genre | Release_date </h4>
+				</div>
+				<br>
+				<h5 style="color:#FFA500;margin-left:30px;"> Director: </h5>
+				<h5 style="color:#FFA500;margin-left:30px;"> Writer: </h5>
+				<h5 style="color:#FFA500;margin-left:30px;"> Stars: </h5>
+				<br>
+				<div>
+				<p style="border: 1px solid black;
+					outline-color: #808080;">
+					
+					Earth's future has been riddled by disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel. 
+					A newly discovered wormhole in the far reaches of our solar system allows a team of astronauts to go where no man has gone before, a planet that may have the right environment to sustain human life.
+					</p>
+				</div>
+			</div>                   
+		</div> 
+		</div>
+		</nav>
+</div>
+
+
+{{selectedMovie}}
+
+-->
 </div>

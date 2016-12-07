@@ -81,5 +81,14 @@
 			});
 		};
 
+		this.fetchDetailedMovieInfo = function (movieId, callback) {
+			$http.post('databaseFiles/movieFullDetail.php', movieId, config)
+			.success(function (status) {
+				callback(status, response);
+			})
+			.error(function (status) {
+				callback(status, response);
+			});
+		};
 	}]);
 })();
