@@ -37,7 +37,7 @@
 		}
 
 		// Enabling show_form variable to enable Add employee button
-		$scope.show_form = true;
+		//$scope.show_form = true;
 		// Function to add toggle behaviour to form
 		$scope.formToggle = function() {
 			hideAllDialog();
@@ -113,10 +113,13 @@
 			$('#editForm').css('display', 'none');
 			$('#movieForm').css('display', 'none');
 			$('#adminLogin').css('display', 'none');
+			$('#DetailsPage').css('display', 'none');
 		};
 
 		$scope.showDetails = function(detail) {
+			$scope.selectedMovie = detail;
 			hideAllDialog();
+			$('#DetailsPage').slideToggle();
 		};
 	}]);
 })();

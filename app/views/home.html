@@ -33,9 +33,13 @@
 	<div ng-include src="'app/views/login.html'"></div>
 </div>
 
+<div class="container detail-dialog" id="DetailsPage" hidden>
+	<div ng-include src="'app/views/detail.html'"></div>
+</div>
+
 <div dir-paginate="detail in details | filter:search_query | itemsPerPage: 10" pagination-id="moviesList">
-	<div class="movie-item" ng-click="showDetails(detail)">
-		<div class="movie-item-image-container" ng-switch on="detail.poster">
+	<div class="movie-item">
+		<div class="movie-item-image-container" ng-switch on="detail.poster" ng-click="showDetails(detail)">
 			<img class="movie-item-image" ng-switch-when="N/A" ng-src="app/image/noimage.jpg" />
 			<img class="movie-item-image" ng-switch-default ng-src="{{detail.poster}}" />
 		</div>
