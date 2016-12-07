@@ -83,11 +83,11 @@
 
 		this.fetchDetailedMovieInfo = function (movieId, callback) {
 			$http.post('databaseFiles/movieFullDetail.php', movieId, config)
-			.success(function (status) {
-				callback(status, response);
+			.success(function (response, status) {
+				callback(response, status);
 			})
-			.error(function (status) {
-				callback(status, response);
+			.error(function (response, status) {
+				callback(response, status);
 			});
 		};
 	}]);

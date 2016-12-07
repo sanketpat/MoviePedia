@@ -124,8 +124,7 @@
 		};
 
 		$scope.showDetails = function(detail) {
-			/*
-			dbService.fetchDetailedMovieInfo(detail.imdb_id, function (status, response) {
+			dbService.fetchDetailedMovieInfo(detail.imdb_id, function (response, status) {
 				if (status == 200) {
 					$scope.selectedMovie = response;
 					hideAllDialog();
@@ -133,14 +132,7 @@
 				} else {
 					alert('Unable to fetch detailed info.');
 				}
-
-				hideAllDialog();
 			});
-			*/
-			
-			$scope.selectedMovie = detail;
-			hideAllDialog();
-			$('#DetailsPage').slideToggle();
 		};
 	}]);
 })();
