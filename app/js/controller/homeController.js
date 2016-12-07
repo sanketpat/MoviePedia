@@ -5,6 +5,22 @@
 		$scope.searchByOptions = ['Title', 'Actor', 'Writer', 'Director', 'Country', 'Language'];
 		$scope.selectedSearchByOption = $scope.searchByOptions[0];
 
+		$scope.recordsFrom = 1;
+		$scope.recordsTo = 100;
+		$scope.totalRecords = 100;
+
+		$scope.searchCond = {
+			searchString : '',
+			selectedYear : '',
+			selectedGenre : ''
+		};
+		
+		$scope.searchObj = {};
+		
+		$scope.searchString = '';
+		$scope.selectedYear = '';
+		$scope.selectedGenre = {};
+		
 		$scope.slider = {
 			minValue: 0,
 			maxValue: 10,
@@ -18,7 +34,7 @@
 				}
 			}
 		};
-
+		
 		getGenre();
 		function getGenre(){
 			dbService.getGenre(function(response,status){
@@ -131,6 +147,95 @@
 					$('#DetailsPage').slideToggle();
 				} else {
 					alert('Unable to fetch detailed info.');
+				}
+			});
+		};
+		
+		$scope.search = function() {
+			var selectedGenreName = '';
+			if ($scope.searchCond.selectedGenre) {
+				selectedGenreName = $scope.searchCond.selectedGenre.name;
+			}
+			
+			document.getElementById('searchString');
+
+			$scope.recordsFrom = 1;
+			$scope.recordsTo = 100;
+			
+			$scope.searchObj = {
+				selectedSearchByOption : $scope.selectedSearchByOption,
+				searchString : $scope.searchCond.searchString ? $scope.searchCond.searchString : '',
+				selectedYear : $scope.searchCond.selectedYear ? $scope.searchCond.selectedYear : '',
+				minRating : $scope.slider.minValue,
+				maxRating : $scope.slider.maxValue,
+				selectedGenre : selectedGenreName,
+				offset : 0,
+				noOfRows : 0
+			}
+
+			dbService.fetchSearchMoviesCount($scope.searchObj, function (response, status) {
+				if (status == 200) {
+					if (response != "" || response != '0') {
+						$scope.totalRecords = parseInt(response.count);
+						
+						if ($scope.recordsTo > $scope.totalRecords) {
+							$scope.recordsTo = $scope.totalRecords;
+						} else {
+							$scope.recordsTo = 100;
+						}
+
+						$scope.searchObj.offset = 0;
+						$scope.searchObj.noOfRows = ($scope.recordsTo - $scope.recordsFrom) + 1;
+
+						dbService.fetchSearchMovies($scope.searchObj, function (response, status) {
+							if (status == 200) {
+								$scope.details = response;
+							} else {
+								alert('Unable to perform search.');
+							}
+						});
+					} else {
+						alert('No data matches search requirement. Please try with different search parameters');
+					}
+				} else {
+					alert('Unable to perform search.');
+				}
+			});
+		};
+
+		$scope.fetchPrev100 = function() {
+			$scope.recordsFrom = $scope.recordsFrom - 100;
+			$scope.recordsTo = $scope.recordsTo - 100;
+			
+			$scope.searchObj.offset = $scope.recordsFrom - 1;
+			$scope.searchObj.noOfRows = ($scope.recordsTo - $scope.recordsFrom) + 1;
+
+			dbService.fetchSearchMovies($scope.searchObj, function (response, status) {
+				if (status == 200) {
+					$scope.details = response;
+				} else {
+					alert('Unable to fetch next result set.');
+				}
+			});
+		};
+
+		$scope.fetchNext100 = function() {
+			$scope.recordsFrom = $scope.recordsFrom + 100;
+
+			if (($scope.recordsTo + 100) > $scope.totalRecords) {
+				$scope.recordsTo = $scope.totalRecords;
+			} else {
+				$scope.recordsTo = $scope.recordsTo + 100;
+			}
+
+			$scope.searchObj.offset = $scope.recordsFrom - 1;
+			$scope.searchObj.noOfRows = ($scope.recordsTo - $scope.recordsFrom) + 1;
+
+			dbService.fetchSearchMovies($scope.searchObj, function (response, status) {
+				if (status == 200) {
+					$scope.details = response;
+				} else {
+					alert('Unable to fetch next result set.');
 				}
 			});
 		};

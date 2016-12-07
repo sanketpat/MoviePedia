@@ -5,7 +5,7 @@ require_once 'database_connections.php';
 $movieId = file_get_contents("php://input");
 
 try {
-    $dbh = new PDO('mysql:dbname=adproject4;host=127.0.0.1', 'root', '');
+    $dbh = new PDO('mysql:dbname=adproject4_1;host=127.0.0.1', 'root', '');
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();

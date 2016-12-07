@@ -1,26 +1,27 @@
 <div class="well search-container">
 	<div>
 		<select class="form-control search-by" ng-options="item for item in searchByOptions" ng-model="selectedSearchByOption"></select>
-		<input type="text" class="form-control search-box" placeholder="Search Movies by {{selectedSearchByOption}} Into Database..." ng-model="search_query">
+		<input type="text" class="form-control search-box" placeholder="Search Movies by {{selectedSearchByOption}} Into Database..." ng-model="searchCond.searchString">
 	</div>
 	<div>
-		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="selectedYear">
+		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="searchCond.selectedYear">
 		<rzslider class="search-rating-range" rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
-		<select class="form-control search-genre margin-top-20" ng-options="item.name for item in genres" ng-model="selectedGenre"> <option ng-option value="">Select Genre</option></select>
+		<select class="form-control search-genre margin-top-20" ng-options="item.name for item in genres" ng-model="searchCond.selectedGenre"> <option ng-option value="">Select Genre</option></select>
 	</div>
 	<div>
 		<button class="btn btn-primary form-control search-btn" ng-click="search()">Search</button>
 	</div>
 </div>
+{{searchString}}
 
 <div class="stats-container">
 	<div class="btn-add-movie-container">
 		<button class="btn btn-default form-control" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
 	</div>
 	<div class="fetch-more-movie-container">
-		<button class="btn btn-default form-control btn-fetch-prev" ng-click="fetchPrev100()">‹</button>
+		<button class="btn btn-default form-control btn-fetch-prev" ng-disabled="recordsFrom == 1" ng-click="fetchPrev100()">‹</button>
 		<span class="form-control lbl-stats">Showing {{recordsFrom}} - {{recordsTo}} of {{totalRecords}} Records</span>
-		<button class="btn btn-default form-control btn-fetch-next" ng-click="fetchNext100()">›</button>
+		<button class="btn btn-default form-control btn-fetch-next" ng-disabled="recordsTo >= totalRecords" ng-click="fetchNext100()">›</button>
 	</div>
 </div>
 
@@ -37,7 +38,7 @@
 	<div ng-include src="'app/views/detail.html'"></div>
 </div>
 
-<div dir-paginate="detail in details | filter:search_query | itemsPerPage: 10" pagination-id="moviesList">
+<div dir-paginate="detail in details | itemsPerPage: 10" pagination-id="moviesList">
 	<div class="movie-item">
 		<div class="movie-item-image-container" ng-switch on="detail.poster" ng-click="showDetails(detail)">
 			<img class="movie-item-image" ng-switch-when="N/A" ng-src="app/image/noimage.jpg" />

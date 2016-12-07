@@ -90,5 +90,25 @@
 				callback(response, status);
 			});
 		};
+		
+		this.fetchSearchMoviesCount  = function (searchObj, callback) {
+			$http.post('databaseFiles/searchMoviesCount.php', searchObj, config)
+			.success(function (response, status) {
+				callback(response, status);
+			})
+			.error(function (response, status) {
+				callback(response, status);
+			});
+		};
+
+		this.fetchSearchMovies  = function (searchObj, callback) {
+			$http.post('databaseFiles/searchMovies.php', searchObj, config)
+			.success(function (response, status) {
+				callback(response, status);
+			})
+			.error(function (response, status) {
+				callback(response, status);
+			});
+		};
 	}]);
 })();
