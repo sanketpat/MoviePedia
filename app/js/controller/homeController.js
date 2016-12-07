@@ -5,10 +5,6 @@
 		$scope.searchByOptions = ['Title', 'Actor', 'Writer', 'Director', 'Country', 'Language'];
 		$scope.selectedSearchByOption = $scope.searchByOptions[0];
 
-		// Fetch Genres from DB
-		$scope.genres = ['Select Genre', 'Action', 'Comedy'];
-		$scope.selectedGenre = $scope.genres[0];
-
 		$scope.slider = {
 			minValue: 0,
 			maxValue: 10,
@@ -23,7 +19,18 @@
 			}
 		};
 
-		// Function to get employee details from the database
+		getGenre();
+		function getGenre(){
+			dbService.getGenre(function(response,status){
+				if(status==200)
+				{
+					$scope.genres = response;
+				}else{
+					console.log('Unfortunately no Genres in DB');
+				}
+			});
+		}
+		// Function to get movie details from the database
 		getInfo();
 		function getInfo() {
 			dbService.getMovies(function (response, status) {

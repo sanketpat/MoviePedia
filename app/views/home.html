@@ -6,7 +6,7 @@
 	<div>
 		<input type="text" class="form-control search-year margin-top-20" placeholder="Year" ng-model="selectedYear">
 		<rzslider class="search-rating-range" rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
-		<select class="form-control search-genre margin-top-20" ng-options="item for item in genres" ng-model="selectedGenre"></select>
+		<select class="form-control search-genre margin-top-20" ng-options="item.name for item in genres" ng-model="selectedGenre"> <option ng-option value="">Select Genre</option></select>
 	</div>
 	<div>
 		<button class="btn btn-primary form-control search-btn" ng-click="search()">Search</button>

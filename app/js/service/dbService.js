@@ -66,5 +66,20 @@
 				callback(status);
 			});
 		};
+
+
+		this.getGenre = function(callback) {
+			// Sending request to EmpDetails.php files
+			$http.get('databaseFiles/genreList.php')
+			.success(function (data, status) {
+				callback(data, status);
+				console.log(status);
+			})
+			.error(function (data, status) {
+				callback(data, status);
+				console.log(status);
+			});
+		};
+
 	}]);
 })();
