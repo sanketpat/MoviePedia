@@ -12,11 +12,10 @@
 		<button class="btn btn-primary form-control search-btn" ng-click="search()">Search</button>
 	</div>
 </div>
-{{searchString}}
 
 <div class="stats-container">
 	<div class="btn-add-movie-container">
-		<button class="btn btn-default form-control" ng-if="!isAdminLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
+		<button class="btn btn-default form-control" ng-if="loggedInStatus.isLoggedIn" ng-click="formToggle()">Add New Movie&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" ></span></button>
 	</div>
 	<div class="fetch-more-movie-container">
 		<button class="btn btn-default form-control btn-fetch-prev" ng-disabled="recordsFrom == 1" ng-click="fetchPrev100()">‹</button>
@@ -45,9 +44,9 @@
 			<img class="movie-item-image" ng-switch-default ng-src="{{detail.poster}}" />
 		</div>
 		<div class="movie-item-footer">
-			<span class="movie-item-label" ng-class="!isAdminLoggedIn == true && {'quarter-width': true} || {'full-width': true}" ng-bind="detail.title"></span>
-			<span ng-show="!isAdminLoggedIn" class="movie-item-edit glyphicon glyphicon-pencil" ng-click="editInfo(detail)"></span>
-			<span ng-show="!isAdminLoggedIn" class="movie-item-delete glyphicon glyphicon-trash" ng-click="deleteInfo(detail)"></span>
+			<span class="movie-item-label" ng-class="loggedInStatus.isLoggedIn == true && {'quarter-width': true} || {'full-width': true}" ng-bind="detail.title"></span>
+			<span ng-show="loggedInStatus.isLoggedIn" class="movie-item-edit glyphicon glyphicon-pencil" ng-click="editInfo(detail)"></span>
+			<span ng-show="loggedInStatus.isLoggedIn" class="movie-item-delete glyphicon glyphicon-trash" ng-click="deleteInfo(detail)"></span>
 		</div>
 	</div>
 </div>

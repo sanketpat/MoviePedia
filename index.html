@@ -29,12 +29,11 @@
 				<h1>MOVIEPEDIA</h1>
 			</div>
 
-			<div class="login-logout" ng-if="!isAdminLoggedIn">
+			<div class="login-logout" ng-if="!loggedInStatus.isLoggedIn">
 				<button class="btn btn-primary form-control btn-login" ng-click="openLoginDialog()">Admin Sign-In</button>
 			</div>
-
-			<div class="login-logout" ng-if="isAdminLoggedIn">
-				<span class="welcome-msg form-control"><strong>Welcome! Atul Banwar{{dbUser.name}}</strong></span>
+			<div class="login-logout" ng-if="loggedInStatus.isLoggedIn">
+				<span class="welcome-msg form-control"><strong>Welcome! {{user.userName}}</strong></span>
 				<button class="btn btn-primary form-control btn-logout" ng-click="logout()">Logout</button>
 			</div>
 		</div>

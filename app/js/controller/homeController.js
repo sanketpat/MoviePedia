@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	angular.module('dbproject')
-	.controller('homeController', ['$scope', '$http', 'dbService', function($scope, $http, dbService) {
+	.controller('homeController', ['$scope', '$rootScope', '$http', 'dbService', function($scope, $rootScope, $http, dbService) {
 		$scope.searchByOptions = ['Title', 'Actor', 'Writer', 'Director', 'Country', 'Language'];
 		$scope.selectedSearchByOption = $scope.searchByOptions[0];
 
@@ -9,18 +9,23 @@
 		$scope.recordsTo = 100;
 		$scope.totalRecords = 100;
 
+		$scope.loggedInStatus = {'isLoggedIn': $rootScope.isAdminLoggedIn};
+		$scope.user = $rootScope.user;
+
 		$scope.searchCond = {
 			searchString : '',
 			selectedYear : '',
 			selectedGenre : ''
 		};
-		
+
+		$scope.user = {};
+
 		$scope.searchObj = {};
-		
+
 		$scope.searchString = '';
 		$scope.selectedYear = '';
 		$scope.selectedGenre = {};
-		
+
 		$scope.slider = {
 			minValue: 0,
 			maxValue: 10,
@@ -34,7 +39,7 @@
 				}
 			}
 		};
-		
+
 		getGenre();
 		function getGenre(){
 			dbService.getGenre(function(response,status){
@@ -121,7 +126,7 @@
 		};
 
 		$scope.login = function() {
-			dbService.login($scope.user, function (status) {
+			/*dbService.login($scope.user, function (status) {
 				if (status == 200) {
 					// do something
 				} else {
@@ -130,7 +135,22 @@
 
 				hideAllDialog();
 			});
+			*/
+
+			if($scope.user.userName=='admin'&& $scope.user.password=='admin')
+					{
+						//$rootScope.isAdminLoggedIn = true;
+						$scope.loggedInStatus.isLoggedIn = true;
+						//$cookieStore.put('isAdminLoggedIn', true);
+						//alert("logged in");
+					}
 		};
+
+		$scope.logout = function() {
+			//$rootScope.isAdminLoggedIn = false;
+			$scope.loggedInStatus.isLoggedIn = false;
+			//$cookieStore.put('isAdminLoggedIn', false);
+		}
 
 		var hideAllDialog = function() {
 			$('#editForm').css('display', 'none');
@@ -150,18 +170,18 @@
 				}
 			});
 		};
-		
+
 		$scope.search = function() {
 			var selectedGenreName = '';
 			if ($scope.searchCond.selectedGenre) {
 				selectedGenreName = $scope.searchCond.selectedGenre.name;
 			}
-			
+
 			document.getElementById('searchString');
 
 			$scope.recordsFrom = 1;
 			$scope.recordsTo = 100;
-			
+
 			$scope.searchObj = {
 				selectedSearchByOption : $scope.selectedSearchByOption,
 				searchString : $scope.searchCond.searchString ? $scope.searchCond.searchString : '',
@@ -177,7 +197,7 @@
 				if (status == 200) {
 					if (response != "" || response != '0') {
 						$scope.totalRecords = parseInt(response.count);
-						
+
 						if ($scope.recordsTo > $scope.totalRecords) {
 							$scope.recordsTo = $scope.totalRecords;
 						} else {
@@ -206,7 +226,7 @@
 		$scope.fetchPrev100 = function() {
 			$scope.recordsFrom = $scope.recordsFrom - 100;
 			$scope.recordsTo = $scope.recordsTo - 100;
-			
+
 			$scope.searchObj.offset = $scope.recordsFrom - 1;
 			$scope.searchObj.noOfRows = ($scope.recordsTo - $scope.recordsFrom) + 1;
 
