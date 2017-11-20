@@ -1,4 +1,8 @@
 # DB Project Framework HTML-AngularJS-PHP-MYSQL
+Information:
+ - Moviepedia (Analytical and transactional Web application using IMDB dataset)
+ - Web application which deals with large dataset (2GB) to understand and implement database query optimization techniques and other database concepts like Stored procedure, dynamic query, triggers, indexes, views implemented for various features.
+ - Technologies: HTML5, AngularJS, PHP, MySQL
 
 Instructions:
   - Create database employee
